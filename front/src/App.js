@@ -6,12 +6,15 @@ import GlobalStyles from './styles/globalStyles';
 
 import Header from './components/Header';
 import Board from './components/Board';
+import BoardContext from './components/Board/context';
 
 function App() {
   return (
     <DndProvider backend={HTML5Backend}>
       <Header />
-      <Board />
+      <BoardContext>
+        <Board />
+      </BoardContext>
 
       <GlobalStyles />
     </DndProvider>

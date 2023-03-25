@@ -8,7 +8,7 @@ import Card from '../Card';
 import { Container } from './styles';
 
 export default function List(props) {
-  const { data } = props;
+  const { data, index: listIndex } = props;
 
   return (
     <Container>
@@ -22,7 +22,15 @@ export default function List(props) {
       </header>
 
       <ul>
-        { data.cards.map((card) => <Card key={card.id} data={card} />) }
+        { data.cards.map((card, index) => (
+          <Card
+            key={card.id}
+            listIndex={listIndex}
+            index={index}
+            data={card}
+            label={data.label}
+          />
+        )) }
       </ul>
     </Container>
   );
@@ -30,4 +38,5 @@ export default function List(props) {
 
 List.propTypes = {
   data: PropTypes.node.isRequired,
+  index: PropTypes.node.isRequired,
 };
