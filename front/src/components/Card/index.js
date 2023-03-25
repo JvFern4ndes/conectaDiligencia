@@ -23,7 +23,7 @@ export default function Card(props) {
         {data.labels.map((label) => <Label key={label} color={label} />)}
       </header>
       <p>{data.content}</p>
-      { data.user && <img src={userPhoto} alt="userPhoto" /> }
+      <div className="userPhoto">{ data.user && <img src={userPhoto} alt="userPhoto" /> }</div>
     </Container>
   );
 }
