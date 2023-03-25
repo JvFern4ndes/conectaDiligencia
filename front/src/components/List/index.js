@@ -14,22 +14,20 @@ export default function List(props) {
     <Container>
       <header>
         <h2>{data.title}</h2>
-        <button type="button">
-          <MdArrowDownward size={24} color="#FFF" />
-        </button>
+        {data.creatable && (
+          <button type="button">
+            <MdArrowDownward size={24} color="#FFF" />
+          </button>
+        )}
       </header>
 
       <ul>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        { data.cards.map((card) => <Card key={card.id} data={card} />) }
       </ul>
     </Container>
   );
 }
 
 List.propTypes = {
-  data: PropTypes.string.isRequired,
+  data: PropTypes.node.isRequired,
 };

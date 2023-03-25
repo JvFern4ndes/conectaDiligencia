@@ -1,17 +1,33 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { useDrag } from 'react-dnd';
 
 import userPhoto from '../../assets/images/userPhoto.png';
 
 import { Container, Label } from './styles';
 
-export default function Card() {
+export default function Card(props) {
+  const [{ isDragging }, dragRef] = useDrag({
+    type: 'BOX',
+    item: { type: 'CARD' },
+    collect: (monitor) => ({
+      isDragging: monitor.isDragging(),
+    }),
+  });
+
+  const { data } = props;
+
   return (
-    <Container>
+    <Container ref={dragRef} isDragging={isDragging}>
       <header>
-        <Label color="#fabb05" />
+        {data.labels.map((label) => <Label key={label} color={label} />)}
       </header>
-      <p>Josefino da Silva</p>
-      <img src={userPhoto} alt="" />
+      <p>{data.content}</p>
+      { data.user && <img src={userPhoto} alt="userPhoto" /> }
     </Container>
   );
 }
+
+Card.propTypes = {
+  data: PropTypes.node.isRequired,
+};
