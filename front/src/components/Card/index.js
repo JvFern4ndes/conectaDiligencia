@@ -28,12 +28,12 @@ export default function Card(props) {
     accept: 'BOX',
     hover(item, monitor) {
       const draggedListIndex = item.listIndex;
-      // const targetListIndex = listIndex;
+      const targetListIndex = listIndex;
 
       const draggedIndex = item.index;
       const targetIndex = index;
 
-      if (draggedIndex === targetIndex) {
+      if (draggedIndex === targetIndex && draggedListIndex === targetListIndex) {
         return;
       }
 
@@ -51,9 +51,10 @@ export default function Card(props) {
         return;
       }
 
-      move(draggedListIndex, draggedIndex, targetIndex, label);
+      move(draggedListIndex, targetListIndex, draggedIndex, targetIndex, label);
 
       item.index = targetIndex;
+      item.listIndex = targetListIndex;
     },
   });
 

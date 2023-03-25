@@ -5,8 +5,8 @@ export default function loadLists() {
   return [
     {
       title: 'Demandas (5)',
-      creatable: false,
-      label: 'demand',
+      rearrange: false,
+      status: 'demand',
       cards: [
         {
           id: 1,
@@ -45,8 +45,8 @@ export default function loadLists() {
     },
     {
       title: 'Propostas Enviadas (1)',
-      creatable: true,
-      label: 'sent',
+      rearrange: true,
+      status: 'sent',
       cards: [
         {
           id: 6,
@@ -58,8 +58,8 @@ export default function loadLists() {
     },
     {
       title: 'Em negociação (3)',
-      creatable: true,
-      label: 'trading',
+      rearrange: true,
+      status: 'negotiate',
       cards: [
         {
           id: 7,
@@ -82,8 +82,8 @@ export default function loadLists() {
     },
     {
       title: 'Executando (3)',
-      creatable: true,
-      label: 'executing',
+      rearrange: true,
+      status: 'executing',
       cards: [
         {
           id: 10,
