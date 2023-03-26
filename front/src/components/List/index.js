@@ -40,16 +40,16 @@ export default function List(props) {
       }
 
       const targetSize = ref.current.getBoundingClientRect();
-      const targetCenter = (targetSize.right - targetSize.left) / 2;
+      const targetCenter = (targetSize.bottom - targetSize.top) / 2;
 
       const draggedOffset = monitor.getClientOffset();
-      const draggedLeft = draggedOffset.x - targetSize.left;
+      const draggedTop = draggedOffset.y - targetSize.top;
 
-      if (draggedIndex < targetIndex && draggedLeft < targetCenter) {
+      if (draggedIndex < targetIndex && draggedTop < targetCenter) {
         return;
       }
 
-      if (draggedIndex > targetIndex && draggedLeft > targetCenter) {
+      if (draggedIndex > targetIndex && draggedTop > targetCenter) {
         return;
       }
 
