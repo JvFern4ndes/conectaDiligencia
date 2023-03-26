@@ -79,7 +79,7 @@ export default function List(props) {
     <Container ref={ref} isDragging={isDragging}>
       <header>
         <h2>{data.title}</h2>
-        {data.creatable && (
+        {data.rearrange && (
           <button type="button">
             <MdArrowDownward size={24} color="#FFF" />
           </button>
