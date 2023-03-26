@@ -12,17 +12,12 @@ const BoardContextProvider = createContext({});
 export default function BoardContext({ children }) {
   const [lists, setLists] = useState(data);
 
-  function move(fromList, toList, from, to, top = false) {
+  function move(fromList, from, to) {
     setLists(produce(lists, (draft) => {
       const dragged = draft[fromList].cards[from];
 
       draft[fromList].cards.splice(from, 1);
-
-      if (top) {
-        draft[toList].cards.unshift(dragged);
-      } else {
-        draft[toList].cards.splice(to, 0, dragged);
-      }
+      draft[fromList].cards.splice(to, 0, dragged);
     }));
   }
 

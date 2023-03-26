@@ -10,7 +10,7 @@ import { Container, Label } from './styles';
 
 export default function Card(props) {
   const {
-    data, index, listIndex, label,
+    data, index, listIndex,
   } = props;
 
   const ref = useRef();
@@ -51,7 +51,7 @@ export default function Card(props) {
         return;
       }
 
-      move(draggedListIndex, targetListIndex, draggedIndex, targetIndex, label);
+      move(draggedListIndex, targetListIndex, draggedIndex, targetIndex);
 
       item.index = targetIndex;
       item.listIndex = targetListIndex;
@@ -75,5 +75,4 @@ Card.propTypes = {
   data: PropTypes.node.isRequired,
   index: PropTypes.node.isRequired,
   listIndex: PropTypes.node.isRequired,
-  label: PropTypes.string.isRequired,
 };
