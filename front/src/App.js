@@ -7,10 +7,12 @@ import GlobalStyles from './styles/globalStyles';
 import Header from './components/Header';
 import Board from './components/Board';
 import BoardContext from './components/Board/context';
+import Sidebar from './components/Sidebar';
 
 function App() {
   return (
     <DndProvider backend={HTML5Backend}>
+      <Sidebar />
       <Header />
       <BoardContext>
         <Board />
