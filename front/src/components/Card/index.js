@@ -2,11 +2,20 @@ import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useDrag, useDrop } from 'react-dnd';
 
+import { FaCheck } from 'react-icons/fa';
 import { useBoard } from '../Board/context';
 
 import userPhoto from '../../assets/images/userPhoto.png';
 
-import { Container, Label } from './styles';
+import {
+  Container,
+  Label,
+  UserContainer,
+  LabelContainer,
+  CardContent,
+  InfosContainer,
+  ConfirmButton,
+} from './styles';
 
 export default function Card(props) {
   const {
@@ -62,11 +71,27 @@ export default function Card(props) {
 
   return (
     <Container ref={ref} isDragging={isDragging}>
-      <header>
-        {data.labels.map((color) => <Label key={color} color={color} />)}
-      </header>
-      <p>{data.content}</p>
-      <div className="userPhoto">{ data.user && <img src={userPhoto} alt="userPhoto" /> }</div>
+      <LabelContainer>
+        <header>
+          {data.labels.map((color) => <Label key={color} color={color} />)}
+        </header>
+      </LabelContainer>
+      <CardContent>
+        <UserContainer>
+          <div className="userPhoto">{ data.user && <img src={userPhoto} alt="userPhoto" /> }</div>
+          <p>{data.name}</p>
+        </UserContainer>
+        <InfosContainer>
+          <strong>{data.time}</strong>
+          <p>{data.date}</p>
+          <strong>{data.local}</strong>
+          <p>{data.place}</p>
+          <button type="button">{data.details}</button>
+        </InfosContainer>
+        <ConfirmButton>
+          <button type="button" aria-label="Confirmar"><FaCheck /></button>
+        </ConfirmButton>
+      </CardContent>
     </Container>
   );
 }

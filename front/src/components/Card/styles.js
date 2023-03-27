@@ -15,7 +15,6 @@ export const Container = styled.div`
 
   p {
     font-weight: 500;
-    padding: 15px;
     line-height: 20px;
   }
 
@@ -24,9 +23,9 @@ export const Container = styled.div`
   }
 
   img {
-    width: 24px;
-    height: 24px;
-    border-radius: 2px;
+    width: 96px;
+    height: 96px;
+    border-radius: 48px;
     margin-top: 5px;
   }
 
@@ -37,10 +36,17 @@ export const Container = styled.div`
     box-shadow: none;
     cursor: grabbing;
 
-    p, img, header {
+    p, strong, img, header, button {
       opacity: 0;
     }
   `}
+`;
+
+export const LabelContainer = styled.div`
+  position: absolute;
+  top: -15px;
+  left: 0;
+  right: 0;
 `;
 
 export const Label = styled.span`
@@ -51,4 +57,73 @@ export const Label = styled.span`
   background: ${(props) => props.color};
 `;
 
-export default { Container, Label };
+export const CardContent = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+`;
+
+export const UserContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  white-space: nowrap;
+
+  p {
+    font-size: 24px;
+  }
+`;
+
+export const InfosContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  padding: 32px 56px;
+
+  strong, p {
+    font-size: 16px;
+    white-space: nowrap;
+  }
+
+  button {
+    display: flex;
+    align-items: left;
+    padding-top: 24px;
+    font-size: 20px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+`;
+
+export const ConfirmButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  svg {
+    background-color: green;
+    color: white;
+    padding: 8px;
+    border-radius: 32px;
+    width: 64px;
+    height: 64px;
+  }
+
+  button {
+    background: none;
+    border: none;
+  }
+`;

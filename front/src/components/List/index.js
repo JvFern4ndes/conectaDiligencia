@@ -89,7 +89,7 @@ export default function List(props) {
       <ul>
         { data.cards.map((card, index) => (
           <Card
-            key={card.id}
+            key={card.title}
             listIndex={listIndex}
             index={index}
             data={card}
