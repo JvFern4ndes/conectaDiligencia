@@ -50,6 +50,11 @@ export default function Sidebar() {
             </a>
           </li>
         </ul>
+        <div className={`sidebar-icon-bar ${isOpen ? 'hidden' : ''}`}>
+          <FaHome />
+          <FaUser />
+          <FaCog />
+        </div>
       </div>
     </Container>
   );
